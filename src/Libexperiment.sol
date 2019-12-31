@@ -14,9 +14,8 @@ contract MathBase {
 
 
 contract withLib {
-  using MathLib for uint256;
   function addWrapper(uint x, uint y) public returns (uint z) {
-    return x.add(y);
+    return MathLib.add(x,y);
   }
 }
 
