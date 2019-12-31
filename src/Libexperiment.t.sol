@@ -5,17 +5,28 @@ import "ds-test/test.sol";
 import "./Libexperiment.sol";
 
 contract LibexperimentTest is DSTest {
-    Libexperiment libexperiment;
+    withLib lib;
+    inherited her;
 
     function setUp() public {
-        libexperiment = new Libexperiment();
+        lib = new withLib();
+        her = new inherited();
     }
 
-    function testFail_basic_sanity() public {
-        assertTrue(false);
+    function test_deply_withLib() public {
+        new withLib();
     }
 
-    function test_basic_sanity() public {
-        assertTrue(true);
+    function test_deply_inherited() public {
+        new inherited();
     }
+
+    function test_withLib_try() public {
+        lib.addWrapper(125, 125);
+    }
+
+    function test_withInherited_try() public {
+        her.addWrapper(125, 125);
+    }
+
 }
